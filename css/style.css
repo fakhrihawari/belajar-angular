@@ -1,0 +1,35 @@
+.block
+{
+	background-color: #cc4645;
+	width: 20%;
+	height: auto;
+	border-radius: 2px;
+	display: inline-block;
+	margin: 0px;
+	color: #fff;
+	
+	text-transform: uppercase;
+	border-radius: 0px;
+	padding-bottom: 10px;
+	border-left: 1px solid #fff;
+
+}
+
+
+.block h1,h2,h4{
+	text-align: center;
+}
+
+.form-harga{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 15px;
+	background-color: #5cb85c; 
+}
+
+.listing-form{
+	padding: 15px;
+	background-color: #5cb85c; 
+
+}
+

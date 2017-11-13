@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My App</title>
+	<meta charset=utf-8>
+	<!-- <meta name=description content=""> -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="Appku" ng-controller="AppkuController">
+	<div class="container-fluid">
+
+		<div class="col-sm-12 form-harga">
+			<div class="row" ng-if="!addManga">
+				<div class="col-sm-6 form-harga">
+					<div class="input-group">
+						<span class="input-group-addon"> harga terendah</span>
+						<select name="minPrice" id="minPrice" ng-model="priceInfo.min" class="form-control">
+							<option value="5">$5</option>
+							<option value="9">$9</option>
+							<option value="10">$10</option>
+							<option value="11">$11</option>
+							
+						</select>
+					</div>
+					
+				</div>
+
+				<div class="col-sm-6 form-harga">
+					<div class="input-group">
+						<span class="input-group-addon"> harga tertinggi</span>
+						<select name="maxPrice" id="maxPrice" ng-model="priceInfo.max" class="form-control">
+							<option value="20">$20</option>
+							<option value="21">$21</option>
+							<option value="22">$22</option>
+							<option value="23">$23</option>
+							
+						</select>
+					</div>
+					
+				</div>
+			</div>
+
+			<button class="btn btn-primary" ng-click="addManga=!addManga" ng-show="!addManga">
+				Add Manga
+			</button>
+
+			<button class="btn btn-danger" ng-click="addManga=!addManga" ng-show ="addManga">
+				Close
+			</button>
+
+			<div class="listing-form" ng-if="addManga">
+				<h3>Tambah Manga</h3>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">judul</span>
+							<input type="text" placeholder="ketikan" class="form-control" ng-model="newListing.judul">
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">mangaka</span>
+							<input type="text" placeholder="ketikan" class="form-control" ng-model="newListing.mangaka">
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">harga</span>
+							<input type="text" placeholder="ketikan" class="form-control" ng-model="newListing.harga">
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">genre</span>
+							<input type="text" placeholder="ketikan" class="form-control" ng-model="newListing.genre">
+						</div>
+					</div>
+
+				</div>
+				<button class="btn btn-primary" ng-click="addComic(newListing)" ng-show="addManga">Tambah</button>
+				<pre>{{newListing | json}}</pre>
+
+			</div>
+
+			<div class="edit-listing" ng-if="editManga">
+				<h3>Edit Manga</h3>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">judul</span>
+							<input type="text" placeholder="ketikan" class="form-control" ng-model="existListing.judul">
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">mangaka</span>
+							<input type="text" placeholder="ketikan" class="form-control" ng-model="existListing.mangaka">
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">harga</span>
+							<input type="text" placeholder="ketikan" class="form-control" ng-model="existListing.harga">
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="input-group">
+							<span class="input-group-addon">genre</span>
+							<input type="text" placeholder="ketikan" class="form-control" ng-model="existListing.genre">
+						</div>
+					</div>
+
+				</div>
+				<button class="btn btn-primary" ng-click="saveEditComic()" ng-show="editManga">Simpan</button>
+				<button class="btn btn-danger" ng-click="deleteEditComic(existListing)" ng-show="editManga">Delete</button>
+				<pre>{{newListing | json}}</pre>
+
+			</div>
+
+
+		
+		</div>
+	</div>
+	
+	
+	<div  class=" block" ng-repeat="manga in comic |AppkuFilter:priceInfo | orderBy:'-id'">
+
+		<h1>{{manga.judul}}</h1>
+		<h4><u>{{manga.mangaka}}</u></h4>
+		<h2 ng-hide="genre==true">{{manga.harga|currency}}</h2>
+		<h2 ng-show="genre==true"><b>{{manga.genre}}</b></h2>
+		<button class="btn btn-xs btn-success" ng-click="genre=!genre" ng-hide="genre==true">Genre</button>
+		<button class="btn btn-xs btn-danger" ng-click="genre=!genre" ng-show="genre==true
+		">Tutup</button>
+		<button class="btn btn-xs btn-primary" ng-click="editComic(manga)" ng-show ="genre">Edit</button>		
+	</div>
+	
+	<pre>{{comic | json}}</pre>
+	<script src="js/angular.min.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<script src="App.js"></script>
+	<script src="script/AppkuController.js"></script>
+	<script src="script/AppkuFactory.js"></script>
+	<script src="script/AppkuFilter.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+[
+	{
+		"judul":"one pice",
+		"mangaka":"Eichiro Oda",
+		"harga":10,
+		"genre":"adventure"
+	},
+	{
+		"judul":"naruto",
+		"mangaka":"Mashashi Kisimoto",
+		"harga":11,
+		"genre":"adventure"
+	},
+	{
+		"judul":"Ippo",
+		"mangaka":"george morikawa",
+		"harga":9,
+		"genre":"adventure"
+	},
+	{
+		"judul":"bleach",
+		"mangaka":"tite kubo",
+		"harga":8,
+		"genre":"adventure"
+	},
+	{
+		"judul":"boruto",
+		"mangaka":"Mashashi Kisimoto",
+		"harga":20,
+		"genre":"adventure"
+	},
+	{
+		"judul":"one pice",
+		"mangaka":"Eichiro Oda",
+		"harga":21,
+		"genre":"adventure"
+	},
+	{
+		"judul":"naruto",
+		"mangaka":"Mashashi Kisimoto",
+		"harga":22,
+		"genre":"adventure"
+	},
+	{
+		"judul":"Ippo",
+		"mangaka":"george morikawa",
+		"harga":23,
+		"genre":"adventure"
+	},
+	{
+		"judul":"bleach",
+		"mangaka":"tite kubo",
+		"harga":24,
+		"genre":"adventure"
+	},
+	{
+		"judul":"boruto",
+		"mangaka":"Mashashi Kisimoto",
+		"harga":25,
+		"genre":"adventure"
+	}
+
+]
